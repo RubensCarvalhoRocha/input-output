@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Car } from './car';
+import { ListingComponent } from "./listing/listing.component";
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+    selector: 'app-root',
+    standalone: true,
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css',
+    imports: [RouterOutlet, ListingComponent]
 })
 export class AppComponent {
   savedCarList: Car[] = [];
@@ -45,4 +46,8 @@ export class AppComponent {
       transmission: 'Automatic',
     },
   ];
+
+  addCarToSaved(car:Car){
+    this.savedCarList.push(car);
+  }
 }
